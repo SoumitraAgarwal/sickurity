@@ -18,7 +18,7 @@ while True:
         if frame_num == 1:
             firstFrame = gray
             if frame_num == 10:
-            	frame_num=0
+            	frame_num= 0
             gray = cv2.GaussianBlur(gray, (21, 21), 0)
             frameDelta = cv2.absdiff(firstFrame, gray)
             thresh = cv2.threshold(frameDelta, 25, 255, cv2.THRESH_BINARY)[1]
@@ -31,11 +31,7 @@ while True:
                     continue
                 (x, y, w, h) = cv2.boundingRect(c)
                 cv2.rectangle(frame, (x, y), (x + w, y + h), (0, 255, 0), 2)
-                if cv2.contourArea(c) > 200000:
-                    frame_num = 0
-                    scene_num = scene_num+1
-                    print(scene_num)
-
+                
                 # Display the resulting frame
 		# cv2.imshow('Video', thresh)
 		# cv2.imshow('Video', frameDelta)
