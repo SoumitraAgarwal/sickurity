@@ -15,8 +15,8 @@ while True:
     if ret:
         frame_num = frame_num+1
         gray = cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY)
-        # if frame_num == 1:
-        #     firstFrame = gray
+        if frame_num == 1:
+            firstFrame = gray
         #     # if frame_num == 10:
         #     # 	frame_num=0
         #     gray = cv2.GaussianBlur(gray, (21, 21), 0)
@@ -38,9 +38,9 @@ while True:
                 # Display the resulting frame
 		# cv2.imshow('Video', thresh)
 		# cv2.imshow('Video', frameDelta)
-                cv2.imshow('Video', frame)
-                if cv2.waitKey(1) & 0xFF == ord('q'):
-                    break
+        cv2.imshow('Video', frame)
+        if cv2.waitKey(1) & 0xFF == ord('q'):
+            break
 		# print frame_num
 # Release video capture
 video_capture.release()
