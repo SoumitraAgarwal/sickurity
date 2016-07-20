@@ -14,6 +14,7 @@ while True:
     print ret
     if ret:
         frame_num = frame_num+1
+        print frame_num
         gray = cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY)
         if frame_num == 1:
             firstFrame = gray
@@ -26,12 +27,11 @@ while True:
             cnts, _ = cv2.findContours(thresh.copy(), cv2.RETR_EXTERNAL,cv2.CHAIN_APPROX_SIMPLE)
             for c in cnts:
             # if the contour is too small, ignore it
-                print _
                 if cv2.contourArea(c) < 10:
                     continue
                 (x, y, w, h) = cv2.boundingRect(c)
                 cv2.rectangle(frame, (x, y), (x + w, y + h), (0, 255, 0), 2)
-                
+
                 # Display the resulting frame
 		# cv2.imshow('Video', thresh)
 		# cv2.imshow('Video', frameDelta)
